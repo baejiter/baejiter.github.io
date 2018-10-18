@@ -1,0 +1,37 @@
+
+---
+title: Git의 기초적인 이해
+categories:
+ - git
+tags: git
+---
+
+> &nbsp; 깃허브 페이지를 시작하며 깃에 대한 전반적인 내용을 이해하게 되었다. 능숙하게 다루기 위해서 배울 내용들이 많지만 나중을 위해 남겨놓는다....
+>
+> &nbsp; 내가 참조한 [블로그](https://git-scm.com/book/ko/v1/)
+
+<!-- more -->
+
+## Overview
+### Git
+<center> ![Git Preview](https://git-scm.com/figures/18333fig0105-tn.png)</center> 
+
+
+깃은 시간순으로 프로젝트의 스냅샷을 저장
+___
+### Local Operations
+![](https://git-scm.com/figures/18333fig0106-tn.png)
+
+3가지 단계. 워킹 디렉토리, 스테이징, 깃 디렉토리(로컬저장소)
+워킹 디렉토리는 내가 파일 작업하는공간. 그냥 로컬 폴더.
+스테이징은 깃 디렉토리로 커밋하기 전의 공간
+깃 디렉토리가 스냅샷 저장하는 공간. 원격 저장소로 푸쉬하기 전의 공간.
+
+___
+
+###File Status Cycle
+![](https://git-scm.com/figures/18333fig0201-tn.png)
+
+&nbsp; 원격 저장소에서 로컬로 클론을 했다면 상태는 unmodified다. 이후 워킹 디렉토리에서 파일을 수정하게되면 modified 상태가 되며 이 파일은 tracked된 상태이지만 unstaged 상태이다(git status명령어를 통해 확인 가능하다). 깃 디렉토리에서 파일을 클론해와 작업했다면 깃이 파일은 track하는 상태이지만 내가 워킹디렉토리에서 (그냥 단순히 말해 그냥 폴더) 새로운 파일 또는 디렉토리를 생성한 경우 untracked 상태이다. 이는 add를 통해 tracked상태로 만들어줄 수 있다.
+&nbsp; unstaged상태의 파일 또한 add를 통해 stage상태로 바꿀 수 있으며 stage상태는 git directory로 커밋되기 전의 상태이다. commit시 add로 인해 staged되지 않은 파일은 commit되지 않는다. 오직 staged된 상태의 파일들만 commit된다.
+&nbsp; git에서 파일을 삭제하려면 rm명령어로 staging area에 있는 tracked된 상태의 파일을 삭제한 후 커밋해야 한다. 이 명령어는 워킹디렉토리에 있는 파일도 삭제한다. ++만약 깃 없이 파일을 삭제하면 unstaged file delete: 라는 표시가 뜬다.++ 이는 git add -u, 또는 rm명령어를 통해 staged상태로 변경시켜주어야 한다.
