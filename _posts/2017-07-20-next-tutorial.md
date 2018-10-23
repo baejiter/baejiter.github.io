@@ -86,8 +86,8 @@ Set `language` field as following in site `_config.yml` to change to Chinese.
 
 ```yml
 language: zh-Hans
-```
 
+```
 ### Comment support.
 
 NexT has native support for `DuoShuo` and `Disqus` comment systems.
